@@ -1,0 +1,27 @@
+$colors: ('aqua' rgb(127, 219, 255), 'lightblue' rgb(203, 240, 255), 'blue' rgb(0, 116, 217), 'navy' rgb(0, 31, 63), 'teal' rgb(57, 204, 204), 'green' rgb(46, 204, 64), 'olive' rgb(61, 153, 112), 'lime' rgb(1, 255, 112), 'yellow' rgb(255, 220, 0), 'orange' rgb(255, 133, 27), 'red' rgb(255, 65, 54), 'fuchsia' rgb(240, 18, 190), 'purple' rgb(177, 13, 201), 'maroon' rgb(133, 20, 75), 'white' rgb(255, 255, 255), 'silver' rgb(221, 221, 221), 'grey' rgb(170, 170, 170), 'darkgrey' rgb(85, 85, 85), 'lightgrey' rgb(249, 249, 249), 'ash' rgb(55, 55, 55), 'black' rgb(17, 17, 17));
+
+@each $color in $colors {
+	$name: nth($color, 1);
+	$code: nth($color, 2);
+
+	.#{$name} {
+		color: $code;
+	}
+	.bg-#{$name} {
+		background-color: $code;
+		&.button {
+			&:hover {
+				background-color: lighten($code, 5%);
+			}
+		}
+	}
+	.border-#{$name} {
+		border-color: $code;
+	}
+	.stroke-#{$name} {
+		stroke: $code;
+	}
+	.fill-#{$name} {
+		fill: $code;
+	}
+}
