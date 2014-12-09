@@ -1,5 +1,7 @@
 <?php namespace App\Markdown;
 
+use App\Markdown\Exceptions\MarkdownFolderNotFoundException;
+use App\Markdown\Exceptions\MarkdownNotFoundException;
 use cebe\markdown\GithubMarkdown;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Cache\Repository as Cache;
@@ -82,6 +84,8 @@ class Markdown {
 	 *
 	 * @param $folder
 	 * @param $name
+	 * @throws MarkdownFolderNotFoundException
+	 * @throws MarkdownNotFoundException
 	 * @return string
 	 */
 	function getMainFile($folder, $name)
@@ -91,7 +95,7 @@ class Markdown {
 
 		if (!$this->filesystem->exists($filePath))
 		{
-			throw new NotFoundHttpException("Page Not Found");
+			throw new MarkdownNotFoundException("No markdown found for $name in $folder");
 		}
 
 		$file = $this->filesystem->get($filePath);
@@ -103,6 +107,7 @@ class Markdown {
 	 * Get the folder path from the config file.
 	 *
 	 * @param $folder
+	 * @throws MarkdownFolderNotFoundException
 	 * @return mixed
 	 */
 	protected function getFolderPath($folder)
@@ -111,7 +116,7 @@ class Markdown {
 
 		if (!$this->config->has($configPath))
 		{
-			throw new NotFoundHttpException("Page Not Found");
+			throw new MarkdownFolderNotFoundException("No markdown folder found for $folder");
 		}
 
 		return $this->config->get($configPath);

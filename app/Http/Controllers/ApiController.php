@@ -14,9 +14,11 @@ class ApiController extends Controller {
 
 	function process($name)
 	{
-		try {
+		try
+		{
 			$api = $this->apiManager->apiForName($name);
-		} catch(\Exception $e) {
+		} catch (\Exception $e)
+		{
 			throw new NotFoundHttpException("Page not found");
 		}
 
