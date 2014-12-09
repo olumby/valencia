@@ -3,7 +3,7 @@
 use Illuminate\Config\Repository as Config;
 use Illuminate\Html\HtmlBuilder;
 
-class Api {
+class ApiManager {
 
 	protected $config;
 

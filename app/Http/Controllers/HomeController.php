@@ -1,14 +1,14 @@
 <?php namespace App\Http\Controllers;
 
-use App\Api\Api;
+use App\Api\ApiManager;
 
 class HomeController extends Controller {
 
-	protected $api;
+	protected $apiManager;
 
-	function __construct(Api $api)
+	function __construct(ApiManager $apiManager)
 	{
-		$this->api = $api;
+		$this->apiManager = $apiManager;
 	}
 
 	/**
@@ -18,7 +18,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$sidebarItems = $this->api->getSidebarLinks();
+		$sidebarItems = $this->apiManager->getSidebarLinks();
 		$main = "Hello";
 
 		return view('markdown')->with(['sidebar' => $sidebarItems, 'main' => $main]);
