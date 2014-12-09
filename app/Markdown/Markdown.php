@@ -4,6 +4,7 @@ use cebe\markdown\GithubMarkdown;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Cache\Repository as Cache;
 use Illuminate\Config\Repository as Config;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Markdown {
 
@@ -25,21 +26,40 @@ class Markdown {
 
 	function getSidebarItems($folder)
 	{
-		$folders = $this->config->get('markdown.folders');
-
-		$path = $folders[$folder]['location'];
+		$path = $this->getFolderPath($folder);
 
 		return $this->filesystem->files($path);
 	}
 
 	function getMainFile($folder, $name)
 	{
-		$folders = $this->config->get('markdown.folders');
+		$folderPath = $this->getFolderPath($folder);
+		$filePath = $folderPath . '/' . $name . '.md';
 
-		$path = $folders[$folder]['location'].'/'.$name.'.md';
-		$file = $this->filesystem->get($path);
+		if (!$this->filesystem->exists($filePath))
+		{
+			throw new NotFoundHttpException("Page Not Found");
+		}
+
+		$file = $this->filesystem->get($filePath);
 
 		return $this->renderer->parse($file);
+	}
+
+	/**
+	 * @param $folder
+	 * @return mixed
+	 */
+	protected function getFolderPath($folder)
+	{
+		$configPath = 'markdown.folders.' . $folder . '.location';
+
+		if (!$this->config->has($configPath))
+		{
+			throw new NotFoundHttpException("Page Not Found");
+		}
+
+		return $this->config->get($configPath);
 	}
 
 } 
