@@ -29,10 +29,11 @@ class ApiManager {
 	{
 		$apis = $this->apiList();
 
-		if (!isset($apis[$name]) )
+		if (!isset($apis[$name]))
 		{
 			throw new ApiNotFoundException("No Api with name $name");
 		}
+
 		return $apis[$name];
 	}
 
@@ -41,7 +42,7 @@ class ApiManager {
 		$arr = $this->config->get('api.apis');
 
 		$results = [];
-		foreach($arr as $category)
+		foreach ($arr as $category)
 		{
 			$results = array_merge($results, $category);
 		}
@@ -60,9 +61,9 @@ class ApiManager {
 		foreach ($categories as $category => $apis)
 		{
 			$incApis = [];
-			foreach ($apis as $api)
+			foreach ($apis as $key => $api)
 			{
-				$incApis[] = '<a href="">' . $api['name'] . '</a>';
+				$incApis[] = '<a href="' . $key . '">' . $api['name'] . '</a>';
 			}
 			$nameArray[ucwords($category)] = $incApis;
 		}
