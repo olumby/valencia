@@ -1,6 +1,6 @@
 <?php namespace App\Markdown;
 
-use GrahamCampbell\Markdown\Markdown as Renderer;
+use cebe\markdown\GithubMarkdown;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Cache\Repository as Cache;
 use Illuminate\Config\Repository as Config;
@@ -15,7 +15,7 @@ class Markdown {
 
 	protected $renderer;
 
-	function __construct(Cache $cache, Config $config, Filesystem $filesystem, Renderer $renderer)
+	function __construct(Cache $cache, Config $config, Filesystem $filesystem, GithubMarkdown $renderer)
 	{
 		$this->cache = $cache;
 		$this->config = $config;
@@ -39,7 +39,7 @@ class Markdown {
 		$path = $folders[$folder]['location'].'/'.$name.'.md';
 		$file = $this->filesystem->get($path);
 
-		return $this->renderer->render($file);
+		return $this->renderer->parse($file);
 	}
 
 } 
