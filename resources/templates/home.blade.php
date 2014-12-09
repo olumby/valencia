@@ -5,5 +5,5 @@
 @stop
 
 @section('main')
-<strong>Main</strong>
+<div style="height:400px" id="map"></div>
 @stop
