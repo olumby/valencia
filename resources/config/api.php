@@ -4,7 +4,7 @@ return [
 
 	'sources' => [
 
-		'opendata' => [
+		'datosabiertos' => [
 
 			'doc'      => 'http://www.valencia.es/ayuntamiento/datosabiertos.nsf/fCategoriaVistaAcc_busqueda?ReadForm&Vista=vCategoriasAccTodas&Categoria=Sin_categoria',
 
