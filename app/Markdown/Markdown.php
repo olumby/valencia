@@ -8,14 +8,40 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Markdown {
 
+	/**
+	 * Filesystem instance.
+	 *
+	 * @var Filesystem
+	 */
 	protected $filesystem;
 
+	/**
+	 * Cache instance.
+	 *
+	 * @var Cache
+	 */
 	protected $cache;
 
+	/**
+	 * Config instance.
+	 *
+	 * @var Config
+	 */
 	protected $config;
 
+	/**
+	 * GithubMarkdown instance.
+	 *
+	 * @var GithubMarkdown
+	 */
 	protected $renderer;
 
+	/**
+	 * @param Cache          $cache
+	 * @param Config         $config
+	 * @param Filesystem     $filesystem
+	 * @param GithubMarkdown $renderer
+	 */
 	function __construct(Cache $cache, Config $config, Filesystem $filesystem, GithubMarkdown $renderer)
 	{
 		$this->cache = $cache;
@@ -24,6 +50,12 @@ class Markdown {
 		$this->renderer = $renderer;
 	}
 
+	/**
+	 * Get the pages for a specific folder.
+	 *
+	 * @param $folder
+	 * @return array
+	 */
 	function getSidebarItems($folder)
 	{
 		$path = $this->getFolderPath($folder);
@@ -31,6 +63,13 @@ class Markdown {
 		return $this->filesystem->files($path);
 	}
 
+	/**
+	 * Get the parsed markdown for a file within a folder.
+	 *
+	 * @param $folder
+	 * @param $name
+	 * @return string
+	 */
 	function getMainFile($folder, $name)
 	{
 		$folderPath = $this->getFolderPath($folder);
@@ -47,6 +86,8 @@ class Markdown {
 	}
 
 	/**
+	 * Get the folder path from the config file.
+	 * 
 	 * @param $folder
 	 * @return mixed
 	 */
