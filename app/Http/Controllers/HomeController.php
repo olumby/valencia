@@ -1,14 +1,14 @@
 <?php namespace App\Http\Controllers;
 
+use App\Api\Api;
+
 class HomeController extends Controller {
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return \App\Http\Controllers\HomeController
-	 */
-	public function __construct()
+	protected $api;
+
+	function __construct(Api $api)
 	{
+		$this->api = $api;
 	}
 
 	/**
@@ -18,7 +18,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$sidebarItems = $this->api->getSidebarLinks();
+		$main = "Hello";
+
+		return view('markdown')->with(['sidebar' => $sidebarItems, 'main' => $main]);
 	}
 
 }

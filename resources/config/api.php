@@ -20,6 +20,8 @@ return [
 
 			'bikeparks'       => [
 
+				'name'     => 'Bike Parking',
+
 				'doc'      => 'http://www.valencia.es/ayuntamiento/datosabiertos.nsf/resultadoCapas/4160A632F4BF00ADC1257C70003E4F99',
 
 				'updates'  => 'semiannualy',
@@ -31,6 +33,8 @@ return [
 			],
 
 			'disabledparking' => [
+
+				'name'     => 'Disabled Parking',
 
 				'doc'      => 'http://www.valencia.es/ayuntamiento/datosabiertos.nsf/resultadoCapas/F9B512FAFDA7525DC1257C70003E4EEA',
 
@@ -44,6 +48,8 @@ return [
 
 			'oraparking'      => [
 
+				'name'     => 'ORA Parking',
+
 				'doc'      => 'http://www.valencia.es/ayuntamiento/datosabiertos.nsf/resultadoCapas/4160A632F4BF00ADC1257C70003E4F99',
 
 				'updates'  => 'quarterly',
@@ -56,6 +62,8 @@ return [
 
 			'bikepaths'       => [
 
+				'name'     => 'Bike Paths',
+
 				'doc'      => 'http://www.valencia.es/ayuntamiento/datosabiertos.nsf/resultadoCapas/667FB171CB271875C1257C70003E4FA4',
 
 				'updates'  => 'quarterly',
@@ -65,6 +73,22 @@ return [
 				'endpoint' => '/Tra-carril-bici/JSON'
 
 			],
+
+		],
+
+		'dummy' => [
+
+			'one' => [
+
+				'name' => 'My Name'
+
+			],
+
+			'two' => [
+
+				'name' => 'My Name Two'
+
+			]
 
 		]
 

@@ -530,10 +530,10 @@ a {
   #main #sidebar ul {
     font-family: "Helvetica Neue", Helvetica;
     list-style-type: none;
-    margin: 0;
     color: #787878;
     padding: 0;
-    font-weight: 300; }
+    font-weight: 300;
+    margin: 0 0 15px; }
     #main #sidebar ul li {
       margin: 0;
       padding: 0; }
@@ -542,6 +542,8 @@ a {
         padding-left: 20px;
         font-size: 14px;
         font-weight: 400; }
+        #main #sidebar ul li ul li {
+          margin: 5px 0; }
 
 #main #content {
   padding: 10px 0; }
