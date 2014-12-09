@@ -4,6 +4,7 @@ use cebe\markdown\GithubMarkdown;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Cache\Repository as Cache;
 use Illuminate\Config\Repository as Config;
+use Illuminate\Html\HtmlBuilder;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Markdown {
@@ -37,17 +38,26 @@ class Markdown {
 	protected $renderer;
 
 	/**
+	 * HtmlBuilder instance.
+	 *
+	 * @var HtmlBuilder
+	 */
+	protected $html;
+
+	/**
 	 * @param Cache          $cache
 	 * @param Config         $config
 	 * @param Filesystem     $filesystem
 	 * @param GithubMarkdown $renderer
+	 * @param HtmlBuilder    $html
 	 */
-	function __construct(Cache $cache, Config $config, Filesystem $filesystem, GithubMarkdown $renderer)
+	function __construct(Cache $cache, Config $config, Filesystem $filesystem, GithubMarkdown $renderer, HtmlBuilder $html)
 	{
 		$this->cache = $cache;
 		$this->config = $config;
 		$this->filesystem = $filesystem;
 		$this->renderer = $renderer;
+		$this->html = $html;
 	}
 
 	/**
@@ -56,11 +66,15 @@ class Markdown {
 	 * @param $folder
 	 * @return array
 	 */
-	function getSidebarItems($folder)
+	function getSidebarLinksForFolder($folder)
 	{
 		$path = $this->getFolderPath($folder);
 
-		return $this->filesystem->files($path);
+		$response = [
+			ucwords($folder) => $this->formatFiles($this->filesystem->files($path), $folder)
+		];
+
+		return html_entity_decode($this->html->ul($response));
 	}
 
 	/**
@@ -87,7 +101,7 @@ class Markdown {
 
 	/**
 	 * Get the folder path from the config file.
-	 * 
+	 *
 	 * @param $folder
 	 * @return mixed
 	 */
@@ -103,4 +117,19 @@ class Markdown {
 		return $this->config->get($configPath);
 	}
 
+	/**
+	 * Format and link file names.
+	 *
+	 * @param $array
+	 * @return mixed
+	 */
+	protected function formatFiles($array, $folder)
+	{
+		$newArray = $array;
+		foreach($array as $key => $item) {
+			$cleaned = ucwords(basename($item, '.md'));
+			$newArray[$key] = $this->html->linkRoute('page', $cleaned, [$folder, strtolower($cleaned)]);
+		}
+		return $newArray;
+	}
 } 

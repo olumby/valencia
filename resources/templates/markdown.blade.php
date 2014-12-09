@@ -1,10 +1,7 @@
 @extends('layouts.main')
 
 @section('sidebar')
-@foreach($sidebar as $item)
-    <li>{{ ucwords(basename($item, '.md')) }}</li>
-@endforeach
-
+    {!! $sidebar !!}
 @stop
 
 @section('main')

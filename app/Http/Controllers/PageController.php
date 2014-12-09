@@ -19,7 +19,7 @@ class PageController extends Controller {
 	 */
 	public function process($folder, $title)
 	{
-		$sidebarItems = $this->markdown->getSidebarItems($folder);
+		$sidebarItems = $this->markdown->getSidebarLinksForFolder($folder);
 		$main = $this->markdown->getMainFile($folder, $title);
 
 		return view('markdown')->with(['sidebar' => $sidebarItems, 'main' => $main]);

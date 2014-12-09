@@ -15,7 +15,7 @@
     <section id="main">
         <div class="container">
             <div class="column-3 padded">
-                <div class="bg-white padded shadow">
+                <div id="sidebar" class="bg-white padded shadow">
                     @yield('sidebar', 'Failed to load..')
                 </div>
             </div>
