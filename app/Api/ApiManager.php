@@ -1,5 +1,6 @@
 <?php namespace App\Api;
 
+use App\Api\Exceptions\ApiNotFoundException;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Html\HtmlBuilder;
 
@@ -24,9 +25,28 @@ class ApiManager {
 		return html_entity_decode($this->html->ul($nameArray));
 	}
 
-	function getApiName()
+	function apiForName($name)
 	{
+		$apis = $this->apiList();
 
+		if (!isset($apis[$name]) )
+		{
+			throw new ApiNotFoundException("No Api with name $name");
+		}
+		return $apis[$name];
+	}
+
+	function apiList()
+	{
+		$arr = $this->config->get('api.apis');
+
+		$results = [];
+		foreach($arr as $category)
+		{
+			$results = array_merge($results, $category);
+		}
+
+		return $results;
 	}
 
 	/**
