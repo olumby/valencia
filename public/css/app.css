@@ -307,9 +307,9 @@
 .lightgrey {
   color: #f9f9f9; }
 
-.bg-lightgrey {
+.bg-lightgrey, #main #content pre {
   background-color: #f9f9f9; }
-  .bg-lightgrey.button:hover {
+  .bg-lightgrey.button:hover, #main #content pre.button:hover {
     background-color: white; }
 
 .border-lightgrey {
@@ -514,3 +514,38 @@ h6, .h6 {
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); }
   .button:active {
     top: 1px; }
+
+html, body {
+  font-family: "Source Sans Pro", sans-serif; }
+
+pre, code {
+  font-family: "Source Code Pro"; }
+
+#main #content {
+  padding: 10px 0; }
+  #main #content p, #main #content pre, #main #content h1, #main #content h2, #main #content h3, #main #content h4, #main #content h5, #main #content h6, #main #content hr {
+    padding-left: 20px;
+    padding-right: 20px; }
+  #main #content h1, #main #content h2, #main #content h3, #main #content h4, #main #content h5, #main #content h6 {
+    font-family: Helvetica;
+    font-weight: 100;
+    margin-bottom: 0; }
+  #main #content p {
+    font-size: 14px;
+    line-height: 145%;
+    margin-bottom: 15px; }
+  #main #content pre {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+    #main #content pre:before {
+      content: "Code";
+      display: block;
+      padding-left: 2px;
+      padding-bottom: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 5px solid #eeeeee;
+      margin-bottom: 5px; }
+  #main #content h1:first-child {
+    margin-top: 0px; }

@@ -1,1 +1,49 @@
 @import 'caffeine/caffeine';
+
+html, body {
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+pre, code {
+	font-family: "Source Code Pro";
+}
+
+#main #content {
+	padding:10px 0;
+
+	p,pre,h1,h2,h3,h4,h5,h6,hr {
+		padding-left:20px;padding-right:20px;
+	}
+
+	h1,h2,h3,h4,h5,h6 {
+		font-family: Helvetica;
+		font-weight: 100;
+		margin-bottom: 0;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 145%;
+		margin-bottom: 15px;
+	}
+
+	pre {
+		&:before {
+			content: "Code";
+			display: block;
+			padding-left:2px;
+			padding-bottom: 2px;
+			font-weight: 700;
+			text-transform: uppercase;
+			border-bottom: 5px solid rgb(238, 238, 238);
+			margin-bottom: 5px;
+		}
+		@extend .bg-lightgrey;
+		font-size:13px;
+		padding-top:5px;padding-bottom:5px;
+	}
+
+	h1:first-child {
+		margin-top: 0px;
+	}
+}
