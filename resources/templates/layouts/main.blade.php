@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="column-9 padded">
-                <div class="bg-white padded shadow">
+                <div id="content" class="bg-white padded shadow">
                     @yield('main', 'Failed to load..')
                 </div>
             </div>
