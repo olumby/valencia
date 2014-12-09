@@ -17,13 +17,18 @@ class ApiController extends Controller {
 		try
 		{
 			$api = $this->apiManager->apiForName($name);
+			$sidebarItems = $this->apiManager->getSidebarLinks();
 		} catch (\Exception $e)
 		{
 			throw new NotFoundHttpException("Page not found");
 		}
 
-		dd($api);
+		$className = "\\App\\Api\\{$api['class']}Api";
+		$class = new $className($api['doc'], $api['endpoint'], $api['name'], $api['source'], $api['updates']);
 
+		$main = $class->mainBody();
+
+		return view('markdown')->with(['sidebar' => $sidebarItems, 'main' => $main]);
 	}
 
 }

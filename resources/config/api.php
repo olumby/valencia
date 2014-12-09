@@ -28,7 +28,9 @@ return [
 
 				'source'   => 'opendata',
 
-				'endpoint' => '/aparcabicis/JSON'
+				'endpoint' => '/aparcabicis/JSON',
+
+				'class'    => 'SimpleGeo'
 
 			],
 
@@ -42,7 +44,9 @@ return [
 
 				'source'   => 'opendata',
 
-				'endpoint' => '/aparcaminusvalidos/JSON'
+				'endpoint' => '/aparcaminusvalidos/JSON',
+
+				'class'    => 'SimpleGeo'
 
 			],
 
@@ -56,7 +60,9 @@ return [
 
 				'source'   => 'opendata',
 
-				'endpoint' => '/Tra_ora_aparcamientos/JSON'
+				'endpoint' => '/Tra_ora_aparcamientos/JSON',
+
+				'class'    => 'SimpleGeo'
 
 			],
 
@@ -70,13 +76,15 @@ return [
 
 				'source'   => 'opendata',
 
-				'endpoint' => '/Tra-carril-bici/JSON'
+				'endpoint' => '/Tra-carril-bici/JSON',
+
+				'class'    => 'SimpleGeo'
 
 			],
 
 		],
 
-		'dummy' => [
+		'dummy'  => [
 
 			'one' => [
 
