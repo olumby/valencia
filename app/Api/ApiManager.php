@@ -69,7 +69,6 @@ class ApiManager {
 			foreach ($apis as $key => $api)
 			{
 				$incApis[] = $this->html->linkRoute('api', $api['name'], [$key]);
-				
 			}
 			$nameArray[ucwords($category)] = $incApis;
 		}
