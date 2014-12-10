@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Visualise Valencia</title>
+    <title>OpenData Valencia</title>
     @include('layouts._partials.head')
 
 </head>
 <body class="bg-lightgrey">
     <header class="bg-ash">
         <div class="container unpadded overflow">
-            <h1 class="h6 text-light lightgrey">Visualise Valencia</h1>
+            <h1 class="h6 text-light lightgrey">{!! HTML::linkRoute('home', 'OpenData Valencia') !!}</h1>
         </div>
     </header>
     <section id="main">
