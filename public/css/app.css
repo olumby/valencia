@@ -525,6 +525,12 @@ a {
   color: inherit;
   text-decoration: none; }
 
+#name span {
+  background: -webkit-radial-gradient(left, ellipse cover, #25b8a4 0%, #5d9ec1 50%, #3359e7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400; }
+
 #main #sidebar {
   padding: 15px 20px; }
   #main #sidebar ul {

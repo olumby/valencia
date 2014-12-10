@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OpenData Valencia</title>
+    <title>Valencia OpenData</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
     @include('layouts._partials.head')
 
 </head>
 <body class="bg-lightgrey">
     <header class="bg-ash">
         <div class="container unpadded overflow">
-            <h1 class="h6 text-light lightgrey">{!! HTML::linkRoute('home', 'OpenData Valencia') !!}</h1>
+            <h1 id="name" class="h6 text-light lightgrey">{!! html_entity_decode(HTML::linkRoute('home', '<span>VLC</span> OpenData')) !!}</h1>
         </div>
     </header>
     <section id="main">
