@@ -23,12 +23,10 @@ class ApiController extends Controller {
 			throw new NotFoundHttpException("Page not found");
 		}
 
-		$className = "\\App\\Api\\{$api['class']}Api";
-		$class = new $className($api['doc'], $api['endpoint'], $api['name'], $api['source'], $api['updates']);
+		$main = $api->mainBody();
+		$bodyend = $api->mainBodyend();
 
-		$main = $class->mainBody();
-
-		return view('markdown')->with(['sidebar' => $sidebarItems, 'main' => $main]);
+		return view('api')->with(['sidebar' => $sidebarItems, 'main' => $main, 'bodyend' => $bodyend]);
 	}
 
 }

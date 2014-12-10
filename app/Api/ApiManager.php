@@ -34,7 +34,12 @@ class ApiManager {
 			throw new ApiNotFoundException("No Api with name $name");
 		}
 
-		return $apis[$name];
+		$api = $apis[$name];
+
+		$className = "\\App\\Api\\" . $api['class'];
+		$class = new $className($api['doc'], $api['endpoint'], $api['name'], $api['source'], $api['updates']);
+
+		return $class;
 	}
 
 	function apiList()

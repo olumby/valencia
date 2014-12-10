@@ -30,7 +30,7 @@ return [
 
 				'endpoint' => '/aparcabicis/JSON',
 
-				'class'    => 'SimpleGeo'
+				'class'    => 'SimpleGeoPoints'
 
 			],
 
@@ -46,7 +46,7 @@ return [
 
 				'endpoint' => '/aparcaminusvalidos/JSON',
 
-				'class'    => 'SimpleGeo'
+				'class'    => 'SimpleGeoPoints'
 
 			],
 
@@ -62,7 +62,7 @@ return [
 
 				'endpoint' => '/Tra_ora_aparcamientos/JSON',
 
-				'class'    => 'SimpleGeo'
+				'class'    => 'SimpleGeoPoints'
 
 			],
 
@@ -78,7 +78,7 @@ return [
 
 				'endpoint' => '/Tra-carril-bici/JSON',
 
-				'class'    => 'SimpleGeo'
+				'class'    => 'SimpleGeoPaths'
 
 			],
 

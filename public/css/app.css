@@ -547,6 +547,9 @@ a {
 
 #main #content {
   padding: 10px 0; }
+  #main #content #map {
+    height: 400px;
+    margin: 10px; }
   #main #content p, #main #content pre, #main #content h1, #main #content h2, #main #content h3, #main #content h4, #main #content h5, #main #content h6, #main #content hr {
     padding-left: 20px;
     padding-right: 20px; }

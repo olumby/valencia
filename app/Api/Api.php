@@ -23,4 +23,6 @@ abstract class Api {
 
 	abstract function mainBody();
 
+	abstract function mainBodyend();
+
 } 

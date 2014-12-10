@@ -27,5 +27,6 @@
         </div>
     </section>
     @include('layouts._partials.bodyend')
+    @yield('bodyend')
 </body>
 </html>
