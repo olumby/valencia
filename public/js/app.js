@@ -29,9 +29,9 @@
 		mapType: "SimpleGeoPoints"
 	};
 
-	$.fn.openDataManager = function(MapType, options){
+	$.fn.openDataManager = function(options){
 		return this.each(function(){
-			(new $.openDataManager(this, MapType, options));
+			(new $.openDataManager(options));
 		});
 	};
 })(jQuery);

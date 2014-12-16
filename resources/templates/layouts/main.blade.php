@@ -10,7 +10,7 @@
 <body class="bg-lightgrey">
     <header class="bg-ash">
         <div class="container unpadded overflow">
-            <h1 id="name" class="h6 text-light lightgrey">{!! html_entity_decode(HTML::linkRoute('home', '<span>VLC</span> OpenData')) !!}</h1>
+            <h1 id="name" class="h6 text-light lightgrey">{!! html_entity_decode(HTML::linkRoute('home', '<span>VLC</span> open data')) !!}</h1>
         </div>
     </header>
     <section id="main">
